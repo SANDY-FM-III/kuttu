@@ -575,14 +575,14 @@ async def auto_filter(client, msg, spoll=False):
         cap = script.RESULT_TXT #result for group
     if imdb and imdb.get('poster'):
         try:
-        a = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+            a=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(300)
             await a.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-        a = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            a=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(300)
             await a.delete()
         except Exception as e:
