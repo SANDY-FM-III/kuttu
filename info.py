@@ -20,7 +20,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN', '7388432028:AAGtDAQzhMYyth98GeC_EhP17kHxA-Q
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
-PICS = (environ.get('PICS', 'https://graph.org/file/d647cbbc75af39a864e7e.jpg')).split()
+PICS = (environ.get('PICS', 'https://graph.org/file/1f37d57a752613f00b2ad.jpg')).split()
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1991522624').split()]
