@@ -64,7 +64,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📁 [{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"📁 [{get_size(file.file_size)}] {file.file_name}", url=f'https://t.me/{temp.U_NAME}?start=files_{file.file_id}'
                 ),
             ]
             for file in files
@@ -414,9 +414,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "start":
         buttons = [[
-                        InlineKeyboardButton('The Happy Hour️ 🌿', url=f"http://t.me/The_Happy_Hours"),
-
-InlineKeyboardButton('The Happy Hour 🇮🇳', url=f'http://t.me/The_Happy_Hour_Hindi')
+                        InlineKeyboardButton('🌿 Sᴇᴀʀᴄʜ Mᴏᴠɪᴇ Fɪʟᴇ 🌿', switch_inline_query_current_chat='')
                     ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -507,7 +505,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📁 [{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"📁 [{get_size(file.file_size)}] {file.file_name}", url=f'https://t.me/{temp.U_NAME}?start=files_{file.file_id}'
                 ),
             ]
             for file in files
@@ -577,16 +575,16 @@ async def auto_filter(client, msg, spoll=False):
         cap = script.RESULT_TXT #result for group
     if imdb and imdb.get('poster'):
         try:
-            jk=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+        a = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(300)
-            await jk.delete()
+            await a.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            jk=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+        b = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(300)
-            await jk.delete()
+            await b.delete()
         except Exception as e:
             logger.exception(e)
             await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
@@ -623,7 +621,7 @@ async def advantage_spell_chok(client, msg):
             reply_markup=InlineKeyboardMarkup(button),
             reply_to_message_id=msg.id
         )
-        await asyncio.sleep(45)
+        await asyncio.sleep(60)
         await k.delete()      
         return
     movielist = []
