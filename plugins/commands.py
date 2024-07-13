@@ -129,7 +129,12 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
+                    reply_markup=InlineKeyboardMarkup(
+                        [[
+                        InlineKeyboardButton('🌿 Sᴇᴀʀᴄʜ Mᴏᴠɪᴇ Fɪʟᴇ 🌿', switch_inline_query_current_chat='')
+                    ]]
                     )
+                )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
@@ -138,6 +143,11 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
+                    reply_markup=InlineKeyboardMarkup(
+                        [[
+                        InlineKeyboardButton('🌿 Sᴇᴀʀᴄʜ Mᴏᴠɪᴇ Fɪʟᴇ 🌿', switch_inline_query_current_chat='')
+                    ]]
+                    )
                     )
             except Exception as e:
                 logger.warning(e, exc_info=True)
@@ -232,6 +242,11 @@ async def start(client, message):
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
+        reply_markup=InlineKeyboardMarkup(
+                        [[
+                        InlineKeyboardButton('🌿 Sᴇᴀʀᴄʜ Mᴏᴠɪᴇ Fɪʟᴇ 🌿', switch_inline_query_current_chat='')
+                    ]]
+                    )
         )
                     
 
