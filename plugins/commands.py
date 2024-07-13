@@ -22,7 +22,7 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
-                        InlineKeyboardButton('🔎 Go To PM & Search 🔎', switch_inline_query_current_chat='')
+                        InlineKeyboardButton('🔎 Go To PM & Search 🔎', url=f"https://t.me/{temp.U_NAME}?start=start)
                     ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
