@@ -3,7 +3,7 @@ class script(object):
 <a href='https://t.me/The_Happy_Hour_Hindi'>Mᴏᴠɪᴇs</a>, Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ <a href='https://t.me/ThappyHour'>Yᴏᴜʀ Gʀᴏᴜᴘ
 </a> Aɴᴅ Eɴᴊᴏʏ.
 
-ᴅᴇᴠʟᴏᴘᴇᴅ ʙʏ : <a href=https://t.me/The_Happy_Hours>The Happy Hour</a></b>"""
+ᴅᴇᴠʟᴏᴘᴇᴅ ʙʏ : The Happy Hour</b>"""
     HELP_TXT = """○ Available Commands
      
  /start - Check I'm Alive..
