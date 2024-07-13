@@ -60,7 +60,7 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "The Happy Hour️ 🌿", url=f'http://t.me/The_Happy_Hours'
+                    "The Happy Hour️ 🌿", url='http://t.me/The_Happy_Hours'
                 )
             ]
         ]
