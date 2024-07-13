@@ -1,9 +1,7 @@
 class script(object):
-    START_TXT = """<b>Mʏ Nᴀᴍᴇ Is #Minato, I Cᴀɴ Pʀᴏᴠɪᴅᴇ 
-<a href='https://t.me/The_Happy_Hour_Hindi'>Mᴏᴠɪᴇs</a>, Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ <a href='https://t.me/ThappyHour'>Yᴏᴜʀ Gʀᴏᴜᴘ
-</a> Aɴᴅ Eɴᴊᴏʏ.
-
-ᴅᴇᴠʟᴏᴘᴇᴅ ʙʏ : The Happy Hour</b>"""
+    START_TXT = """<b>Mʏ Nᴀᴍᴇ Is #Mɪɴᴀᴛᴏ, I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs, Sᴇʀɪᴇs, Aɴɪᴍᴇ. Jᴜsᴛ Sᴇɴᴅ Mᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ & Sᴇᴇ Mᴀɢɪᴄ ✨
+    
+    ⬇️ Cʟɪᴄᴋ Hᴇʀᴇ & Sᴇᴀʀᴄʜ ⬇️</b>"""
     HELP_TXT = """○ Available Commands
      
  /start - Check I'm Alive..
