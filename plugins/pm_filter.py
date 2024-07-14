@@ -375,7 +375,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data.startswith("gen_stream_link"):
         _, file_id = query.data.split(":")
-            try:
+        try:
             user_id = query.from_user.id
             username =  query.from_user.mention 
             log_msg = await client.send_cached_media(
