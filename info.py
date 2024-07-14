@@ -56,7 +56,7 @@ PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "False")), True)
 
 #stream feature 
-STREAM_BIN = environ.get("STREAM_BIN", "-1002203015475") #Log channel/Bin Channel id -100xxxxxxx
+STREAM_BIN = environ.get("STREAM_BIN", "-1002127267005") #Log channel/Bin Channel id -100xxxxxxx
 STREAM_URL = environ.get("STREAM_URL", "https://renewed-kathi-coa937-0efcd1f0.koyeb.app/") # https://example.com/ (Your Stream Url)
 IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 
