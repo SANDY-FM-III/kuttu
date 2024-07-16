@@ -13,7 +13,7 @@ from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GRO
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, send_all
+from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results
 from database.filters_mdb import (
@@ -69,10 +69,6 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
-        
-        btn.insert(0, [
-            InlineKeyboardButton("📥 Sᴇɴᴅ Aʟʟ Fɪʟᴇs 📥", callback_data=f"send_fall#files#{key}#{offset}")
-        ])
     else:
         btn = [
             [
@@ -415,16 +411,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer(text=script.HIN_SPELL, show_alert="true")
     elif query.data == "tsp":
         await query.answer(text=script.TAM_SPELL, show_alert="true")
-    
-    elif query.data.startswith("send_fall"):
-        temp_var, ident, key, offset = query.data.split("#")
-        search = BUTTONS.get(key)
-        if not search:
-            await query.answer(script.OLD_MES.format(query.from_user.first_name),show_alert=True)
-            return
-        files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=offset, filter=True)
-        await send_all(client, query.from_user.id, files, ident)
-        await query.answer(f"Hey {query.from_user.first_name}, All files on this page has been sent successfully to your PM !",show_alert=True)
         
     elif query.data == "start":
         buttons = [[
@@ -524,9 +510,6 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-        btn.insert(0, [
-            InlineKeyboardButton("📥 Sᴇɴᴅ Aʟʟ Fɪʟᴇs 📥", callback_data=f"send_fall#files#{key}#{offset}")
-        ])
     else:
         btn = [
             [
