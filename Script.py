@@ -81,7 +81,7 @@ Added By - {}
 ID - <code>{}</code>
 Name - {}
 """
-    SPOLL_NOT_FND="""Plzzz Select True Name...✅"""
+    SPOLL_NOT_FND="""Cʜᴀᴄᴋ Rᴇᴏ̨ᴜᴇsᴛ Fᴏʀᴍᴀᴛ 👇"""
 #SPELL CHECK LANGUAGES TO KNOW callback
     ENG_SPELL="""Sᴇᴀʀᴄʜ Mᴏᴠɪᴇ Wɪᴛʜ Cᴏʀʀᴇᴄᴛ Sᴘᴇʟʟɪɴɢ :
 
