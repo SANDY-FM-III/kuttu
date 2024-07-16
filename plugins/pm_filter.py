@@ -64,7 +64,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📁 [{get_size(file.file_size)}] {file.file_name}", url=f'https://t.me/{temp.U_NAME}?start=files_{file.file_id}'
+                    text=f"📁 [{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", url=f'https://t.me/{temp.U_NAME}?start=files_{file.file_id}'
                 ),
             ]
             for file in files
@@ -505,7 +505,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📁 [{get_size(file.file_size)}] {file.file_name}", url=f'https://t.me/{temp.U_NAME}?start=files_{file.file_id}'
+                    text=f"📁 [{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", url=f'https://t.me/{temp.U_NAME}?start=files_{file.file_id}'
                 ),
             ]
             for file in files
@@ -663,7 +663,7 @@ async def advantage_spell_chok(client, msg):
         reply_markup=InlineKeyboardMarkup(btn),
         reply_to_message_id=msg.id
     )
-    await asyncio.sleep(180)
+    await asyncio.sleep(80)
     await spell_check_del.delete()
 
 #SPELL CHECK END
