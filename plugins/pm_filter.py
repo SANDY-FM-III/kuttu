@@ -417,7 +417,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer(text=script.TAM_SPELL, show_alert="true")
     
     elif query.data.startswith("send_fall"):
-        temp, ident, key, offset = query.data.split("#")
+        temp_var, ident, key, offset = query.data.split("#")
         search = BUTTONS.get(key)
         if not search:
             await query.answer(script.OLD_MES.format(query.from_user.first_name),show_alert=True)
