@@ -13,7 +13,7 @@ from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GRO
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
+from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, send_all
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results
 from database.filters_mdb import (
@@ -59,6 +59,8 @@ async def next_page(bot, query):
 
     if not files:
         return
+    temp.GETALL[key] = files
+    # temp.SHORT[query.from_user.id] = query.message.chat.id
     settings = await get_settings(query.message.chat.id)
     if settings['button']:
         btn = [
@@ -69,6 +71,10 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
+        
+        btn.insert(0, [
+            InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}")
+        ])
     else:
         btn = [
             [
@@ -411,6 +417,49 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer(text=script.HIN_SPELL, show_alert="true")
     elif query.data == "tsp":
         await query.answer(text=script.TAM_SPELL, show_alert="true")
+
+    elif query.data.startswith("sendfiles"):
+        clicked = query.from_user.id
+        ident, key = query.data.split("#")
+        settings = await get_settings(query.message.chat.id)
+                await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=allfiles_{key}")
+                return
+        except UserIsBlocked:
+            await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
+        except PeerIdInvalid:
+            await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=sendfiles3_{key}")
+        except Exception as e:
+            logger.exception(e)
+            await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=sendfiles4_{key}")
+
+    elif query.data.startswith("send_fsall"):
+        temp_var, ident, key, offset = query.data.split("#")
+        search = BUTTON0.get(key)
+        if not search:
+            await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name),show_alert=True)
+            return
+        files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=int(offset), filter=True)
+        await send_all(client, query.from_user.id, files, ident, query.message.chat.id, query.from_user.first_name, query)
+        search = BUTTONS1.get(key)
+        files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=int(offset), filter=True)
+        await send_all(client, query.from_user.id, files, ident, query.message.chat.id, query.from_user.first_name, query)
+        search = BUTTONS2.get(key)
+        files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=int(offset), filter=True)
+        await send_all(client, query.from_user.id, files, ident, query.message.chat.id, query.from_user.first_name, query)
+        await query.answer(f"Hey {query.from_user.first_name}, All files on this page has been sent successfully to your PM !", show_alert=True)
+        
+    elif query.data.startswith("send_fall"):
+        temp_var, ident, key, offset = query.data.split("#")
+        if BUTTONS.get(key)!=None:
+            search = BUTTONS.get(key)
+        else:
+            search = FRESH.get(key)
+        if not search:
+            await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name),show_alert=True)
+            return
+        files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=int(offset), filter=True)
+        await send_all(client, query.from_user.id, files, ident, query.message.chat.id, query.from_user.first_name, query)
+        await query.answer(f"Hey {query.from_user.first_name}, All files on this page has been sent successfully to your PM !", show_alert=True)
         
     elif query.data == "start":
         buttons = [[
@@ -497,6 +546,7 @@ async def auto_filter(client, msg, spoll=False):
         else:
             return
     else:
+        temp.GETALL[key] = files
         settings = await get_settings(msg.message.chat.id)
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
@@ -510,6 +560,9 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
+        btn.insert(0, [
+            InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}")
+        ])
     else:
         btn = [
             [
