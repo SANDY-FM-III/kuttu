@@ -1,7 +1,7 @@
 class script(object):
     START_TXT = """<b>Mʏ Nᴀᴍᴇ Is #Mɪɴᴀᴛᴏ, I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs, Sᴇʀɪᴇs, Aɴɪᴍᴇ. Jᴜsᴛ Sᴇɴᴅ Mᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ & Sᴇᴇ Mᴀɢɪᴄ ✨
     
-          ⬇️ Cʟɪᴄᴋ Hᴇʀᴇ & Sᴇᴀʀᴄʜ ⬇️</b>"""
+             ⬇️ Cʟɪᴄᴋ Hᴇʀᴇ & Sᴇᴀʀᴄʜ ⬇️</b>"""
     HELP_TXT = """○ Available Commands
      
  /start - Check I'm Alive..
@@ -69,7 +69,7 @@ Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
 Added By - {}
 """
-    RESULT_TXT="""Here are list of files"""
+    RESULT_TXT="""Hᴇʀᴇ Aʀᴇ Tʜᴇ Lɪsᴛ Oғ Fɪʟᴇs 👇"""
 
     CUSTOM_FILE_CAPTION = """<b><a href="https://t.me/ThappyHour">{CUSTOM_FILE_CAPTION}</a></b>"""
 
@@ -110,7 +110,10 @@ Sᴇᴀʀᴄʜ Wᴇʙ Sᴇʀɪᴇs Iɴ ᴛʜɪs Fᴏʀᴍᴀᴛᴇ :
 
     CHK_MOV_ALRT="""♻️ ᴄʜᴇᴄᴋɪɴɢ ꜰɪʟᴇ ᴏɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ... ♻️"""
     
-    OLD_MES="""𝐘𝐨𝐮 𝐚𝐫𝐞 𝐮𝐬𝐢𝐧𝐠 𝐨𝐧𝐞 𝐨𝐟 𝐦𝐲 𝐨𝐥𝐝 𝐦𝐞𝐬𝐬𝐚𝐠𝐞𝐬🤔, 𝐩𝐥𝐞𝐚𝐬𝐞 𝐬𝐞𝐧𝐝 𝐭𝐡𝐞 𝐫𝐞𝐪𝐮𝐞𝐬𝐭 𝐚𝐠𝐚𝐢𝐧"""
+    OLD_MES="""Yᴏᴜ Aʀᴇ Usɪɴɢ Mʏ Oʟᴅ Mᴀssᴀɢᴇ, Pʟᴇᴀsᴇ Rᴇᴏ̨ᴜᴇsᴛ Aɢᴀɪɴ...."""
     
-    MOV_NT_FND="""<b>Tʜɪs Mᴏᴠɪᴇ Is Nᴏᴛ Yᴇᴛ Tᴏ DB</b>
-"""
+    MOV_NT_FND="""<b>Tʜɪs Mᴏᴠɪᴇ Is Nᴏᴛ Fᴏᴜɴᴅ Iɴ Mʏ Dᴀᴛᴀʙᴀsᴇ....😥
+
+Pʟᴇᴀsᴇ Cᴏɴᴛᴇᴄᴛ Fᴏʀ Sᴜᴘᴘᴏʀᴛ Tᴇᴀᴍ ☎️
+
+Rᴇᴏ̨ᴜᴇsᴛ Hᴇʀᴇ - @THHREQBOT 📩</b>"""
