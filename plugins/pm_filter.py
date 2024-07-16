@@ -59,8 +59,6 @@ async def next_page(bot, query):
 
     if not files:
         return
-    temp.GETALL[key] = files
-    # temp.SHORT[query.from_user.id] = query.message.chat.id
     settings = await get_settings(query.message.chat.id)
     if settings['button']:
         btn = [
@@ -73,7 +71,7 @@ async def next_page(bot, query):
         ]
         
         btn.insert(0, [
-            InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}")
+            InlineKeyboardButton("📥 Sᴇɴᴅ Aʟʟ Fɪʟᴇs 📥", callback_data=f"send_fall#files#{key}#{offset}")
         ])
     else:
         btn = [
@@ -417,11 +415,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer(text=script.HIN_SPELL, show_alert="true")
     elif query.data == "tsp":
         await query.answer(text=script.TAM_SPELL, show_alert="true")
-
-    elif query.data.startswith("sendfiles"):
-        clicked = query.from_user.id
-        ident, key = query.data.split("#")
-        settings = await get_settings(query.message.chat.id)
     
     elif query.data.startswith("send_fall"):
         temp, ident, key, offset = query.data.split("#")
@@ -431,7 +424,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             return
         files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=offset, filter=True)
         await send_all(client, query.from_user.id, files, ident)
-        await query.answer(f"Hey {query.from_user.first_name}, All files on this page has been sent successfully to your PM !")
+        await query.answer(f"Hey {query.from_user.first_name}, All files on this page has been sent successfully to your PM !",show_alert=True)
         
     elif query.data == "start":
         buttons = [[
@@ -518,7 +511,6 @@ async def auto_filter(client, msg, spoll=False):
         else:
             return
     else:
-        temp.GETALL[key] = files
         settings = await get_settings(msg.message.chat.id)
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
@@ -533,7 +525,7 @@ async def auto_filter(client, msg, spoll=False):
             for file in files
         ]
         btn.insert(0, [
-            InlineKeyboardButton("𝐒𝐞𝐧𝐝 𝐀𝐥𝐥", callback_data=f"sendfiles#{key}")
+            InlineKeyboardButton("📥 Sᴇɴᴅ Aʟʟ Fɪʟᴇs 📥", callback_data=f"send_fall#files#{key}#{offset}")
         ])
     else:
         btn = [
