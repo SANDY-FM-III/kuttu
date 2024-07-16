@@ -1,7 +1,7 @@
 class script(object):
     START_TXT = """<b>Mʏ Nᴀᴍᴇ Is #Mɪɴᴀᴛᴏ, I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs, Sᴇʀɪᴇs, Aɴɪᴍᴇ. Jᴜsᴛ Sᴇɴᴅ Mᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ & Sᴇᴇ Mᴀɢɪᴄ ✨
     
-    ⬇️ Cʟɪᴄᴋ Hᴇʀᴇ & Sᴇᴀʀᴄʜ ⬇️</b>"""
+          ⬇️ Cʟɪᴄᴋ Hᴇʀᴇ & Sᴇᴀʀᴄʜ ⬇️</b>"""
     HELP_TXT = """○ Available Commands
      
  /start - Check I'm Alive..
