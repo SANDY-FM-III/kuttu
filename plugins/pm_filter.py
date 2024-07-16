@@ -422,6 +422,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         clicked = query.from_user.id
         ident, key = query.data.split("#")
         settings = await get_settings(query.message.chat.id)
+            return
         except UserIsBlocked:
             await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
         except PeerIdInvalid:
