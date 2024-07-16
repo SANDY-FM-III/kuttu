@@ -217,9 +217,7 @@ async def start(client, message):
             f_caption = f"<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
                 try:
-                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
-                except:
-                    return
+                    f_caption=CUSTOM_FILE_CAPTION
             await msg.edit_caption(f_caption)
             return
         except:
@@ -231,9 +229,7 @@ async def start(client, message):
     f_caption=files.caption
     if CUSTOM_FILE_CAPTION:
         try:
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
-        except:
-            return
+            f_caption=CUSTOM_FILE_CAPTION
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
