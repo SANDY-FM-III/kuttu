@@ -214,7 +214,8 @@ async def start(client, message):
             file = getattr(msg, filetype.value)
             title = file.file_name
             size=get_size(file.file_size)
-            f_caption = files.caption f_caption=CUSTOM_FILE_CAPTION
+            f_caption = files.caption
+            f_caption=CUSTOM_FILE_CAPTION
             await msg.edit_caption(f_caption)
             return
         except:
@@ -224,7 +225,7 @@ async def start(client, message):
     title = files.file_name
     size=get_size(files.file_size)
     f_caption=files.caption
-            f_caption=CUSTOM_FILE_CAPTION
+    f_caption=CUSTOM_FILE_CAPTION
     if f_caption is None:
         f_caption = f"{files.file_name}"
     await client.send_cached_media(
