@@ -57,10 +57,7 @@ async def answer(bot, query):
         title=file.file_name
         size=get_size(file.file_size)
         f_caption=file.caption
-        if CUSTOM_FILE_CAPTION:
-            try:
-                f_caption=CUSTOM_FILE_CAPTION
-                f_caption=f_caption
+        f_caption=CUSTOM_FILE_CAPTION
         if f_caption is None:
             f_caption = f"{file.file_name}"
         results.append(
