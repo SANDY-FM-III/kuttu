@@ -69,7 +69,7 @@ Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
 Added By - {}
 """
-    RESULT_TXT="""Hᴇʀᴇ Aʀᴇ Tʜᴇ Lɪsᴛ Oғ Fɪʟᴇs 👇"""
+    RESULT_TXT="""<b>Hᴇʀᴇ Aʀᴇ Tʜᴇ Lɪsᴛ Oғ Fɪʟᴇs 👇</b>"""
 
     CUSTOM_FILE_CAPTION = """<b><a href="https://t.me/ThappyHour">{CUSTOM_FILE_CAPTION}</a></b>"""
 
