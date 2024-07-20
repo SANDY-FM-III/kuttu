@@ -71,7 +71,7 @@ Added By - {}
 """
     RESULT_TXT="""<b>Hᴇʀᴇ Aʀᴇ Tʜᴇ Lɪsᴛ Oғ Fɪʟᴇs 👇</b>"""
 
-    CUSTOM_FILE_CAPTION = """<b><a href="https://t.me/ThappyHour">{CUSTOM_FILE_CAPTION}</a></b>"""
+    CUSTOM_FILE_CAPTION = """<b><a href="https://t.me/ThappyHour">{file_name}</a></b>"""
 
     
     RESTART_TXT = """
